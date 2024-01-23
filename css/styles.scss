@@ -1,0 +1,327 @@
+@use '_mixins';
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body{
+    width: 100vw;
+    height: 100vh;
+    background: url(../assets/backgrounds/body-bg.png);
+    background-position: center;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+@media (min-width: 481px){
+    .filter{
+        width: 50%;
+    }
+    .bg{
+        width: 50%;
+    }
+    .bar-txt{
+        font-size: 0.5em;
+        font-weight: bold;
+        top: 0.5%;
+        left: 0;
+    }
+    #upper-area{
+        button{
+            @include mixins.btns(20% , 30px, #141414, 0.8em)
+        }
+    }
+    footer{
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        background-color: #252525;
+        width: 50%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+#game{
+    width: 50%;
+    height: 90%;
+    display: flex; 
+    flex-direction: column; 
+    justify-content: flex-end;
+    margin: auto;
+    min-width: 360px;
+
+    #upper-area{
+    
+        height: 100%;
+        
+        input{
+            @include mixins.input(30%, 10px);
+            background-color: #ffffff6b;
+            border: none;
+            border-bottom: 1px solid black;
+        }
+        
+        .pokeimg{
+            height: 250px;
+        }
+    }
+    .poke-init{
+        width: 120px;
+    }
+    .initial{
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+        gap: 20px
+    }
+    .continue{
+        display: flex;
+        flex-direction: column;
+        justify-content: end;
+        align-items: center;
+        gap: 20px
+    }
+    .game{
+        display: flex;
+        justify-content: center;
+        align-items: flex-end;
+        gap: 10px;
+        .start-game{
+            align-self: center;
+        }
+        .filter{
+            position: absolute;
+            z-index: 2;
+            height: 100%;
+        }
+        .bg{
+            position: absolute;
+            z-index: 1;
+            height: 100%;
+        }
+        .sleep{
+            background: linear-gradient(180deg, rgba(3,7,45,1) 60%, rgba(1,21,131,1) 100%);
+            opacity: 0.7;
+        }
+
+        .evole{
+            animation: evole linear 3s infinite;
+        }
+        
+    }
+    #stats-area{
+        display: flex; 
+        justify-content: center;
+        padding: 10px;
+        gap: 10px;
+        align-items: center; 
+        background-color: #252525;
+        height: 20%;
+        .stats{
+            width: 25%;
+            height: 100%;
+            border: 1px solid rgba(255, 255, 255, 0.524);
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            border-radius: 10px;
+            padding: 10px;
+            gap: 5px;
+            p{
+                text-align: center;
+                font-size: 0.8em;
+                    color: #fff;
+                
+            }
+            .hunger{
+                @include mixins.btns(100% , 30px, linear-gradient(0deg, rgba(135,105,62,1) 11%, rgba(219,152,55,1) 100%), 0.9em);
+                border: 1px solid #fff;
+            }
+            .play{
+                @include mixins.btns(100% , 30px, linear-gradient(0deg, rgba(86,107,64,1) 11%, rgba(107,167,36,1) 100%), 0.9em);
+                border: 1px solid #fff;
+            }
+            .train{
+                @include mixins.btns(100% , 30px, linear-gradient(0deg, rgba(130,69,66,1) 11%, rgba(220,78,70,1) 100%), 0.9em);
+                border: 1px solid #fff;
+            }
+            .sleep{
+                @include mixins.btns(100% , 30px, linear-gradient(0deg, rgba(66,88,110,1) 11%, rgba(59,149,200,1) 100%), 0.9em);
+                border: 1px solid #fff;
+            }
+            .bar-txt{
+                position: relative;
+            }
+            .bar{
+                margin-top: -20px;
+                margin-bottom: 5px;
+                height: 20px;
+            
+            }
+            .danger{
+                animation: danger linear 5s infinite running;
+            }
+        }
+        
+    }
+
+    #chat-text{
+        position: absolute;
+        width: 50%;
+        height: 20%;
+        color: white;
+        background-color: #252525;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        padding: 20px;
+        min-width: 360px;
+    }
+}
+
+@media (max-width: 480px){
+    #game{
+        #upper-area{
+            button{
+                @include mixins.btns(25% , 40px, #141414, 0.8em);
+            }
+        }
+        width: 100%;
+        height: 90%;
+        #chat-text{
+            width: 100%;
+            font-size: 0.9em;
+        }
+        .stats{
+            .bar-txt{
+                font-size: 0.5em;
+                font-weight: bold;
+                top: 4%;
+                left: 3%;
+            }
+            p{
+                font-size: 0.8em;
+                color: #fff;
+            }
+            
+            .bar{
+                height: 20px;
+            }
+        }
+    }
+    .filter{
+        width: 100%;
+    }
+    footer{
+        a{
+            text-decoration: none;
+            color: #fff;
+        }
+        background-color: #252525;
+        width: 100%;
+        height: 10%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+}
+
+@keyframes danger {
+    0%{
+        color: #fff;
+        text-shadow: 0px 0px 0px rgba(255,25,25,0.96);
+    }
+    10%{
+        color: #ff1919;
+        text-shadow: 0px 0px 6px rgba(255,25,25,0.96);
+    }
+    20%{
+        color: #fff;
+        text-shadow: 0px 0px 10px rgba(255,25,25,0.96);
+    }
+    30%{
+        color: #ff1919;
+        text-shadow: 0px 0px 15px rgba(255,25,25,0.96);
+    }
+    40%{
+        color: #fff;
+        text-shadow: 0px 0px 20px rgba(255,25,25,0.96);
+    }
+    50%{
+        color: #ff1919;
+        text-shadow: 0px 0px 22px rgba(255,25,25,0.96);
+    }
+    60%{
+        color: #fff;
+        text-shadow: 0px 0px 24px rgba(255,25,25,0.96);
+    }
+    70%{
+        color: #ff1919;
+        text-shadow: 0px 0px 25px rgba(255,25,25,0.96);
+    }
+    80%{
+        color: #fff;
+        text-shadow: 0px 0px 26px rgba(255,25,25,0.96);
+    }
+    90%{
+        color: #ff1919;
+        text-shadow: 0px 0px 28px rgba(255,25,25,0.96);
+    }
+    100%{
+        color: #fff;
+        text-shadow: 0px 0px 30px rgba(255,25,25,0.96);
+    }
+}
+
+@keyframes evole {
+    0%{
+        background: transparent;
+    }
+    25%{
+        background: #fff;
+    }
+    50%{
+        background: transparent;
+    }
+    75%{
+        background: #fff;
+    }
+    100%{
+        background: transparent;
+    }
+}
+
+.lab{
+    @include mixins.back(url('../assets/backgrounds/profesor-oak-lab.png'));
+    }
+    .evolution{
+    @include mixins.back(url('../assets/backgrounds/istockphoto-968699100-612x612.jpeg'));
+    }
+
+    .bg{
+        height: 100%;
+        width: 100%;
+    }
+    .slp{
+        @include mixins.back(url('../assets/backgrounds/bedroom.png'));
+    }
+    .train{
+        @include mixins.back(url('../assets/backgrounds/gym.png'));
+    }
+    .eat{
+        @include mixins.back(url('../assets/backgrounds/cafeteria.png'));
+    }
+    .out{
+        @include mixins.back(url('../assets/backgrounds/outside.png'));
+    }
+    .evolving{
+        justify-self: center;
+        align-self: center;
+    }

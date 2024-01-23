@@ -1,0 +1,124 @@
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  width: 100vw;
+  height: 100vh;
+}
+
+#game {
+  width: 50%;
+  height: 90%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  margin: auto;
+  min-width: 360px;
+}
+#game #upper-area {
+  background: url(../sig-4646722.LabPokemonSnapx4.jpg);
+  height: 80%;
+  background-repeat: no-repeat;
+  background-position: center;
+  background-size: cover;
+}
+#game .initial {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  gap: 20px;
+}
+#game #stats-area {
+  display: flex;
+  justify-content: center;
+  padding: 10px;
+  gap: 10px;
+  align-items: center;
+  background-color: #252525;
+  height: 20%;
+}
+#game #stats-area .stats {
+  width: 25%;
+  height: 100%;
+  border: 1px solid rgba(255, 255, 255, 0.524);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  border-radius: 10px;
+  padding: 10px;
+  gap: 5px;
+}
+#game #stats-area .stats p {
+  text-align: center;
+  font-size: 0.8em;
+}
+#game #stats-area .stats button {
+  padding: 5px;
+  border: none;
+  border-radius: 10px;
+  color: white;
+  width: 100%;
+  height: 30px;
+  background: #141414;
+  font-size: 0.9em;
+  font-weight: bolder;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+#game #stats-area .stats button:hover {
+  opacity: 0.7;
+}
+#game #stats-area .stats button:disabled {
+  opacity: 0.2;
+}
+#game #stats-area .stats .bar-txt {
+  position: relative;
+}
+#game #stats-area .stats .bar {
+  margin-top: -20px;
+  margin-bottom: 5px;
+  height: 40%;
+}
+#game #chat-text {
+  position: absolute;
+  width: 50%;
+  height: 20%;
+  color: white;
+  background-color: #252525;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 20px;
+  min-width: 360px;
+}
+
+@media (max-width: 480px) {
+  #game {
+    width: 100%;
+    height: 90%;
+  }
+  #game #chat-text {
+    width: 100%;
+    font-size: 0.9em;
+  }
+  #game .stats .bar-txt {
+    font-size: 0.5em;
+    font-weight: bold;
+    top: 5%;
+    left: 5%;
+  }
+  #game .stats p {
+    font-size: 0.8em;
+    color: #fff;
+  }
+  #game .stats .bar {
+    height: 25%;
+  }
+}
+
+/*# sourceMappingURL=style.css.map */

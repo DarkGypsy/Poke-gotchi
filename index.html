@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Poké-gotchi</title>
+    <link rel="stylesheet" href="./css/styles.css">
+    <link rel="shortcut icon" href="./assets/img/icon.png" type="image/x-icon">
+</head>
+<body>
+    <div id="game">
+        <div class="bg" id="bg">
+            <div id="upper-area" class="initial" >
+                <input type="text" id="trainer-name" placeholder="Enter your name">
+                <button id="new-game">New game</button>
+                <button id="continue-game">Continue</button>
+            </div>
+        </div>
+        <div id="stats-area">
+            <div id="hunger" class="stats">
+                <p id="hunger-txt"></p>
+                <p id="hunger-bar-txt" class="bar-txt"></p>
+                <div id="hunger-bar" class="bar"></div>
+            </div>
+            <div id="energy" class="stats">
+                <p id="energy-txt"></p>
+                <p id="energy-bar-txt" class="bar-txt"></p>
+                <div id="energy-bar" class="bar"></div>
+            </div>
+            <div id="happiness" class="stats">
+                <p id="happiness-txt"></p>
+                <p id="happiness-bar-txt" class="bar-txt"></p>
+                <div id="happiness-bar" class="bar"></div>
+            </div>
+            <div id="lvl" class="stats">
+                <p id="lvl-num"></p>
+                <p id="experience-bar-txt" class="bar-txt"></p>
+                <div id="experience-bar" class="bar"></div>
+            </div>
+        </div>
+    </div>
+    <audio src="" loop autoplay id="music"></audio>
+    <audio src="" volumen="50%" id="sound" autoplay></audio>
+    <footer>
+        <a href="https://github.com/DarkGypsy?tab=repositories" target="_blank">DarkGypsy</a>
+    </footer>
+</body>
+<script src="./js/index.js"></script>
+</html>
