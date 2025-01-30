@@ -74,7 +74,7 @@ let trainer = {
    }
 };
 const pokeList = [1, 4, 7, 10, 13, 16, 19, 23, 41, 50, 52, 54, 56, 58, 77, 79, 81, 84, 86, 88, 98, 100, 104, 109, 116, 118, 129, 147];
-
+//This event listener will start a new game when the new game button is clicked.
 if (localStorage.getItem('trainer')) {
    $continueGame.addEventListener('click', ()=>{
       loadGame(trainer);
@@ -92,7 +92,7 @@ $newGame.addEventListener('click', ()=>{
 
 
 
-
+//This function will start a new game and get a random pokemon from the pokeList array.
 async function newGame(trainer){
    $music.removeAttribute('src');
    $music.setAttribute('src', './assets/audio/Pokémon-HQ-Laboratory.mp3');
@@ -107,7 +107,7 @@ async function newGame(trainer){
    $gameUpper.classList.remove('initial');
    $gameUpper.classList.add('game');
 };
-
+//This function will start the game and give the trainer the instructions.
 function game(trainer){
    $pokeimg.classList.remove('poke-init');
    $music.removeAttribute('src');
@@ -316,7 +316,7 @@ function randomNum(min, max) {
 };
 
 
-
+//This function will get the pokemon data from the pokeapi, and assign it to the trainer object, it will also get the evolution chain of the pokemon.
 async function getPokemon(id) {
    try {
       let response = await fetch(`https://pokeapi.co/api/v2/pokemon/${id}`)
@@ -357,12 +357,13 @@ async function getPokemon(id) {
    }
    
 }
-
+//This function will convert the stats of the pokemon to a percentage to be used in the progress bars.
 function convertToPercentage(health, maxHealth, minHealth) {
    const percentage = ((health - minHealth) / (maxHealth - minHealth)) * 100;
    return Math.round(percentage);
  }
 
+ //This function will update the stats of the pokemon and check if the pokemon has failed.
 function updateBar(stat, value, operator) {
    if(operator === '+'){
       stat.current += value;
@@ -428,7 +429,7 @@ function updateBar(stat, value, operator) {
       $energyTxt.classList.remove('danger');
    }
 }
-
+//This function will level up the pokemon when the experience bar is full, it will also check if the pokemon can evolve.
 function expLvlUP(stat, value) {
    $experienceBar.style.backgroundColor = 'blue'
    stat.current += value;
@@ -448,7 +449,7 @@ function expLvlUP(stat, value) {
    $lvlTxt.innerText = `Lvl: ${trainer.pokemon.lvl.current}`;
   
 }
-
+//This function will evolve the pokemon when it reaches the required level. Using the evolution chain of the pokemon from the pokeapi.
 async function Elvolve(pokemon) {
  let evolution = await fetch(pokemon.lvl.evolves_to);
  let evolutionData = await evolution.json();
@@ -489,16 +490,16 @@ async function Elvolve(pokemon) {
    
    
 }
-
+//This function will save the game in the local storage.
 function saveGame(trainer) {
    localStorage.setItem('trainer', JSON.stringify(trainer));
    
 }
-
+//This function will load the game from the local storage.
 function loadGame() {
  trainer = JSON.parse(localStorage.getItem('trainer'));
 }
-
+//This function will end the game if the trainer fails to take care of the pokemon and erase the local storage.
 function gameOver(interval) {
    clearInterval(interval);
    let $profOak = document.createElement('img');
@@ -512,7 +513,7 @@ function gameOver(interval) {
    $gameStats.appendChild($chatText);
    localStorage.clear('trainer');
 }
-
+//This function will start the game and give the trainer the instructions.
 function gameStart(trainer) {
    let $profOak = document.createElement('img');
    $profOak.setAttribute('src', 'assets/img/Professor_Oak.png');
@@ -538,6 +539,7 @@ function gameStart(trainer) {
    })
 
 }
+//This function will continue the game from the last save.
 function continueGame() {
    $gameUpper.innerHTML = ''
    $gameUpper.classList.remove('initial');
@@ -565,6 +567,7 @@ function continueGame() {
 
    })
 }
+//This function will add a filter to the background to give the game a more dynamic look.
 function filter(filter, name, time, background) {
    filter.classList.add(`${name}`);   
    setTimeout(() => {
